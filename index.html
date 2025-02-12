@@ -22,9 +22,13 @@
             line-height: 1.6;
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-weight: bold;
             color: #007bff;
+            text-align: center; /*Центрируем заголовки на мобильных*/
         }
 
         .navbar {
@@ -138,20 +142,22 @@
         }
 
         .about-agileinfo {
-            padding: 60px 0;
+            padding: 30px 0; /*Уменьшаем отступы*/
         }
 
         .about-grids-w3-agileits {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
+            /*display: flex;  Удаляем flex, чтобы колонки занимали всю ширину на мобильных*/
+            /*flex-wrap: wrap; Удаляем flex, чтобы колонки занимали всю ширину на мобильных*/
+            /*justify-content: space-between; Удаляем flex, чтобы колонки занимали всю ширину на мобильных*/
+            /*align-items: center; Удаляем flex, чтобы колонки занимали всю ширину на мобильных*/
         }
 
         .about-grid-left-agileits-w3layouts,
         .about-grid-right-w3-agile {
-            flex: 1 1 45%;
+            /*flex: 1 1 100%;!*Устанавливаем 100% ширину для каждой колонки*!*/
             margin-bottom: 20px;
+            width: 100%; /*Растягиваем на всю ширину*/
+            text-align: center; /*Выравниваем текст по центру*/
         }
 
         .about-grid-left-agileits-w3layouts ul {
@@ -170,6 +176,8 @@
 
         .effect-zoe img {
             transition: transform 0.5s ease;
+            max-width: 100%; /*Чтобы изображения не вылезали за пределы контейнера*/
+            height: auto;
         }
 
         .effect-zoe:hover img {
@@ -204,28 +212,28 @@
         .services-bottom-w3-agileits {
             background-color: #007bff;
             color: white;
-            padding: 40px 0;
+            padding: 20px 0;  /*Уменьшаем отступы*/
             text-align: center;
         }
 
         .wthree_info_grid {
-            padding: 20px;
+            padding: 15px; /*Уменьшаем отступы*/
         }
 
         .wthree_info_grid h3 {
             color: white;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .wthree_info_grid p {
-            font-size: 1.1rem;
+            font-size: 1rem; /*Уменьшаем размер шрифта*/
         }
 
         .learn {
             display: inline-block;
             background-color: rgb(0, 0, 0);
             color: #007bff;
-            padding: 8px 16px;
+            padding: 6px 12px; /*Уменьшаем отступы*/
             border-radius: 5px;
             text-decoration: none;
             transition: background-color 0.3s ease;
@@ -238,18 +246,23 @@
         .footer {
             background-color: #343a40;
             color: white;
-            padding: 40px 0;
+            padding: 20px 0; /*Уменьшаем отступы*/
+            text-align: center; /*Центрируем текст*/
         }
 
         .footer-left-w3,
-        .footer-right-w3 {
-            margin-bottom: 20px;
+        .footer-right-w3,
+        .footer-center-w3 {
+            margin-bottom: 15px; /*Уменьшаем отступ снизу*/
+            width: 100%; /*Растягиваем на всю ширину*/
+            text-align: center; /*Центрируем текст*/
         }
 
         .footer-left-w3 h4,
-        .footer-right-w3 h4 {
+        .footer-right-w3 h4,
+        .footer-center-w3 h4 {
             color: white;
-            margin-bottom: 15px;
+            margin-bottom: 10px; /*Уменьшаем отступ снизу*/
         }
 
         .footer-left-w3 ul {
@@ -258,13 +271,14 @@
         }
 
         .footer-left-w3 li {
-            margin-bottom: 8px;
+            margin-bottom: 6px; /*Уменьшаем отступ снизу*/
             display: flex;
             align-items: center;
+            justify-content: center; /*Центрируем элементы li*/
         }
 
         .footer-left-w3 li span {
-            margin-right: 10px;
+            margin-right: 5px; /*Уменьшаем отступ справа*/
         }
 
         .footer-left-w3 a {
@@ -278,36 +292,43 @@
 
         .copyright {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 10px; /*Уменьшаем отступ сверху*/
         }
 
         .copyright p {
-            font-size: 0.9rem;
+            font-size: 0.8rem; /*Уменьшаем размер шрифта*/
         }
 
-        @media (max-width: 768px) {
+        /* Media query для небольших экранов (телефонов) */
+        @media (min-width: 768px) { /*Если экран больше телефона, то...*/
             .about-grids-w3-agileits {
-                flex-direction: column;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
                 align-items: center;
             }
 
             .about-grid-left-agileits-w3layouts,
             .about-grid-right-w3-agile {
-                flex: 1 1 100%;
-                text-align: center;
+                flex: 1 1 45%;
+                text-align: left;
             }
 
-            .services-bottom-w3-agileits .wthree_info_grid {
-                padding: 15px;
-            }
-
-            .footer {
-                text-align: center;
+            .footer .row { /*Размещаем колонки футера в строку*/
+                display: flex;
+                flex-wrap: wrap;
             }
 
             .footer-left-w3,
-            .footer-right-w3 {
-                margin-bottom: 15px;
+            .footer-right-w3,
+            .footer-center-w3 {
+                width: auto;
+                width: 33.33%; /*Для размещения в 3 колонки*/
+                text-align: left;
+            }
+
+            .footer-left-w3 li {
+                justify-content: left;
             }
         }
     </style>
@@ -338,7 +359,7 @@
                 <div class="col-md-6 about-grid-right-w3-agile">
                     <div class="grid-w3ls">
                         <figure class="effect-zoe">
-                            <img src="banner1.jpg" alt=" " class="img-responsive">
+                            <img src="" alt=" " class="img-responsive">
                             <figcaption>
                                 <h3>cxz_sosok <span>bio</span></h3>
                             </figcaption>
@@ -406,7 +427,7 @@
                 </div>
                 <div class="col-md-4 footer-right-w3">
                     <a href="index.html">
-                        <h4>cxz_sosok <img src="f1.png" alt=" " /> bio</h4>
+                        <h4>cxz_sosok <img src="" alt=" " /> bio</h4>
                     </a>
                     <p>by cxz_sosok</p>
                 </div>
