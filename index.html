@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cxz_sosok bio</title>
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" property="" />
+    <link rel="icon" href="images/themes2.gif" type="image/gif">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            color: #343a40;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            color: #007bff !important;
+        }
+
+        .navbar-brand:hover {
+            color: #0056b3 !important;
+        }
+
+        .slider {
+            margin-top: 20px;
+        }
+
+        .rslides {
+            position: relative;
+            list-style: none;
+            overflow: hidden;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rslides li {
+            -webkit-backface-visibility: hidden;
+            position: absolute;
+            display: none;
+            width: 100%;
+            left: 0;
+            top: 0;
+        }
+
+        .rslides li:first-child {
+            position: relative;
+            display: block;
+        }
+
+        .rslides img {
+            display: block;
+            height: auto;
+            float: left;
+            width: 100%;
+            border: 0;
+        }
+
+        .callbacks_nav {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            z-index: 3;
+            text-indent: -9999px;
+            overflow: hidden;
+            opacity: 0;
+            cursor: pointer;
+            background: transparent url("img/themes2.gif") no-repeat 0 0;
+            width: 28px;
+            height: 32px;
+            margin-top: -16px;
+        }
+
+        .callbacks_nav.next {
+            left: auto;
+            background-position: 100% 0;
+            right: 0;
+        }
+
+        .callbacks_nav:active {
+            opacity: 1.0;
+        }
+
+        .callbacks_tabs {
+            list-style: none;
+            position: absolute;
+            padding: 0;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            text-align: center;
+        }
+
+        .callbacks_tabs li {
+            display: inline;
+            margin: 0 1px;
+        }
+
+        .callbacks_tabs a {
+            visibility: hidden;
+        }
+
+        .callbacks_tabs a:after {
+            content: "\f111";
+            font-size: 0;
+            font-family: FontAwesome;
+            visibility: visible;
+            display: block;
+            height: 12px;
+            width: 12px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+        }
+
+        .callbacks_here a:after {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .about-agileinfo {
+            padding: 60px 0;
+        }
+
+        .about-grids-w3-agileits {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .about-grid-left-agileits-w3layouts,
+        .about-grid-right-w3-agile {
+            flex: 1 1 45%;
+            margin-bottom: 20px;
+        }
+
+        .about-grid-left-agileits-w3layouts ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-grid-left-agileits-w3layouts li {
+            margin-bottom: 10px;
+        }
+
+        .effect-zoe {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .effect-zoe img {
+            transition: transform 0.5s ease;
+        }
+
+        .effect-zoe:hover img {
+            transform: scale(1.1);
+        }
+
+        .effect-zoe figcaption {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .effect-zoe:hover figcaption {
+            opacity: 1;
+        }
+
+        .effect-zoe h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .services-bottom-w3-agileits {
+            background-color: #007bff;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .wthree_info_grid {
+            padding: 20px;
+        }
+
+        .wthree_info_grid h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .wthree_info_grid p {
+            font-size: 1.1rem;
+        }
+
+        .learn {
+            display: inline-block;
+            background-color: rgb(0, 0, 0);
+            color: #007bff;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .learn:hover {
+            background-color: #ffffff;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 40px 0;
+        }
+
+        .footer-left-w3,
+        .footer-right-w3 {
+            margin-bottom: 20px;
+        }
+
+        .footer-left-w3 h4,
+        .footer-right-w3 h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .footer-left-w3 ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-left-w3 li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-left-w3 li span {
+            margin-right: 10px;
+        }
+
+        .footer-left-w3 a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-left-w3 a:hover {
+            color: #007bff;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .copyright p {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-grids-w3-agileits {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-grid-left-agileits-w3layouts,
+            .about-grid-right-w3-agile {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+
+            .services-bottom-w3-agileits .wthree_info_grid {
+                padding: 15px;
+            }
+
+            .footer {
+                text-align: center;
+            }
+
+            .footer-left-w3,
+            .footer-right-w3 {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">cxz_sosok bio</a>
+        </div>
+    </nav>
+
+    <!-- About -->
+    <div class="about-agileinfo" id="about">
+        <div class="container">
+            <h2 class="animate__animated animate__fadeIn">Обо Мне</h2>
+            <div class="about-grids-w3-agileits">
+                <div class="col-md-6 about-grid-left-agileits-w3layouts">
+                    <ul>
+                        <li><i class="fas fa-user"></i> 14 y.o python developer</li>
+                    </ul>
+                    <ul>
+                        <li><i class="fas fa-code"></i> <a href="https://t.me/m9simm">main: @m9simm</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 about-grid-right-w3-agile">
+                    <div class="grid-w3ls">
+                        <figure class="effect-zoe">
+                            <img src="images/banner1.jpg" alt=" " class="img-responsive">
+                            <figcaption>
+                                <h3>cxz_sosok <span>bio</span></h3>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Bottom -->
+    <div class="services-bottom-w3-agileits">
+        <div class="container">
+            <div class="wthree_info">
+                <section class="slider">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <div class="wthree_info_grid">
+                                    <h3>Donate</h3>
+                                    <p>Tinkoff - 2200 7017 2023 6915</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="wthree_info_grid">
+                                    <h3>Отзывы</h3>
+                                    <a href="https://t.me/zzzooovvvzzzooovvv" class="learn">Посмотреть Отзывы</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-left-w3">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i></li>
+                        <li><a href="mailto:msmsimm56@gmail.com">msmsimm56@gmail.com</a></li>
+                    </ul>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i></li>
+                        <li>Россия, Краснодар</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-center-w3">
+                    <h4>Навыки</h4>
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="fas fa-check-circle"></i> Python
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i> Web Development
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i> Telegram Bot Development
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-right-w3">
+                    <a href="index.html">
+                        <h4>cxz_sosok <img src="images/f1.png" alt=" " /> bio</h4>
+                    </a>
+                    <p>by cxz_sosok</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 cxz_sosok bio. Все права защищены | Дизайн от cxz_sosok</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/responsiveslides.min.js"></script>
+    <script src="js/jquery.flexslider.js"></script>
+    <script>
+        $(function() {
+            $("#slider").responsiveSlides({
+                auto: true,
+                nav: false,
+                speed: 800,
+                namespace: "callbacks",
+                pager: false,
+            });
+
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function(slider) {
+                    $('body').removeClass('loading');
+                },
+                controlNav: true,
+                directionNav: false
+            });
+        });
+    </script>
+
+</body>
+
+</html>
